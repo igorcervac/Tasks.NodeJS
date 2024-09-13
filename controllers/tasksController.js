@@ -1,9 +1,6 @@
 var LocalStorage = require('node-localstorage').LocalStorage;
 localStorage = new LocalStorage('./scratch');
 
-// var LocalStorage = require('./localStorage');
-// localStorage = new LocalStorage();
-
 const tasks_get = (req, res) => { 
     const tasks = JSON.parse(localStorage.getItem('tasks')) || [];
     res.render('tasks/index', { tasks });

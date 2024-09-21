@@ -26,8 +26,11 @@ const tasks_put =  (req, res) => {
 }
 
 const tasks_delete =  (req, res) => {
-    const tasks = JSON.parse(localStorage.getItem('tasks')) || [];   
-    tasks.splice(req.params.id, 1);
+    const tasks = JSON.parse(localStorage.getItem('tasks')) || []; 
+
+    const index = tasks.findIndex(x => x.id == req.params.id); 
+
+    tasks.splice(index, 1);
 
     localStorage.setItem('tasks', JSON.stringify(tasks));
 

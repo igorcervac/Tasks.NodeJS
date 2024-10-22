@@ -9,7 +9,8 @@ app.use("/css",express.static("./node_modules/bootstrap/dist/css"));
 // app.use("/js",express.static("./node_modules/bootstrap/dist/js"));
 app.use(express.static('public'));
 
-app.listen(3000);
+var port = process.env.PORT || 1337;
+app.listen(port);
 
 app.get('/', (req, res) => {    
     res.redirect('/tasks');
